@@ -1,0 +1,24 @@
+{
+  "name": "nedbclient",
+  "version": "0.0.1",
+  "description": "client for lookatsrc@githut/nedbserver. ",
+  "main": "lib/client.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lookatsrc/nedbclient.git"
+  },
+  "keywords": [
+    "nedb",
+    "nedbserver",
+    "nedb-client"
+  ],
+  "author": "kumara undru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lookatsrc/nedbclient/issues"
+  },
+  "homepage": "https://github.com/lookatsrc/nedbclient#readme",
+  "dependencies": {
+    "nssocket": "^0.6.0"
+  }
+}
