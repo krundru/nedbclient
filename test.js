@@ -1,37 +1,20 @@
 var dbclient = require(__dirname);
-var database = dbclient.newDatabase(9000);
+var db = dbclient.loadCollection(9000, 'items');
 
-var db = database.loadCollection('count-table');
-
-/*
-db.count({}, function(err, count) {
-  console.log(err);
-  console.log(count);
-});
-*/
-
-
-db.ensureIndex({fieldName: 'name', unique: true}, function (err) {
-  if (err) {
-    console.log('err in ensure');
-    console.log(err);
+function run(i) {
+  if (i < 0) {
     return;
   }
   
-  db.insert([{
-    name: 'Google5'
-  }, {
-    name: 'Microsoft5'
-  }
-  ], function(err, data) { 
-    console.log(err);
-    console.log(data);
+  i--;
+  db.insert({name:'Google'}, function(err, data) {
+    console.log({err:err, data:data});
+    process.nextTick(run, i);
   });
-});
+}
 
+//run(10000);
 
-
-
-/*db.insert({
-  name: 'Google5'
-});*/
+db.count({}, function(err, count) {
+  console.log({err:err, count:count});
+})
